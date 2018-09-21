@@ -1,0 +1,14 @@
+#!/bin/sh
+set -e -x
+
+cd /resources
+
+# Installing temporary tools
+apk add --no-cache curl
+
+# Installing postfix
+apk add --no-cache \
+  postfix=${POSTFIX_VERSION}
+
+# Configuring postfix
+mv /resources/etc/postfix/master.cf   /etc/postfix/master.cf
